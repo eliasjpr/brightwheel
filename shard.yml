@@ -1,0 +1,19 @@
+name: brightwheel
+version: 0.1.0
+
+authors:
+  - Elias Perez <eliasjpr@gmail.com>
+
+targets:
+  brightwheel:
+    main: src/brightwheel.cr
+
+crystal: 1.1.1
+
+license: MIT
+
+dependencies:
+  azu:
+    github: azutoolkit/azu
+  halite:
+    github: icyleaf/halite
