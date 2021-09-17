@@ -17,3 +17,6 @@ dependencies:
     github: azutoolkit/azu
   halite:
     github: icyleaf/halite
+  circuit_breaker:
+    github: noellabo/circuit_breaker
+    branch: fix-time-span-new

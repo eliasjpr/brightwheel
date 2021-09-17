@@ -1,5 +1,11 @@
 module Brightwheel
   class MailerService
+    getter breaker : CircuitBreaker = CircuitBreaker.new(
+      threshold: 5,       # % of errors before you want to trip the circuit
+      timewindow: 60,     # in s: anything older will be ignored in error_rate
+      reenable_after: 300 # after x seconds, the breaker will allow executions again
+    )
+
     def self.send(email : EmailRequest)
       new(email).deliver!
     end
@@ -9,7 +15,10 @@ module Brightwheel
 
     # Some resiliency can be implemented here
     def deliver!
-      default_mailer.send(@email)
+      breaker.run do
+        default_mailer.send(@email)
+      end
+
       # We can do some automatic failover by rescuing and enqueing any failures
       #
       # Examples

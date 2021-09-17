@@ -8,6 +8,10 @@ shards:
     git: https://github.com/sija/backtracer.cr.git
     version: 1.2.1
 
+  circuit_breaker:
+    git: https://github.com/noellabo/circuit_breaker.git
+    version: 0.0.5+git.commit.33e5951aaa69505e1eccea392543f1af5fcfd489
+
   crinja:
     git: https://github.com/straight-shoota/crinja.git
     version: 0.8.0

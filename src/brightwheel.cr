@@ -1,5 +1,6 @@
 require "azu"
 require "halite"
+require "circuit_breaker"
 
 module Brightwheel
   include Azu
