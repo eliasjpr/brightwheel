@@ -7,6 +7,8 @@
 
 ## Runing the Service
 
+> Note: The service is a precompiled program that can be run by simply executing `./bin/brightwheel` from the root of the project directory using a terminal.
+
 1. Run `source .env` from console and project root to load the environment
    variables (Using bash)
 2. Run `./bin/brightwheel` to start the service
@@ -56,7 +58,9 @@ Another observation, I noticed that one of the requirements state as follows:
 `Convert the body HTML to a plain text version to send along to the email provider.`
 
 I purposely left this out because I did not see it being used currently. Not sure if I am missing something. I assuming this will be used later on and I will rather
-wait until then to implement it
+wait until then to implement it.
+
+Service configuration uses environment variables this is to follow best practices as stated in the 12 factor principles for portability and configuration https://12factor.net/
 
 ## Contributing
 
