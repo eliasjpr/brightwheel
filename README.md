@@ -62,6 +62,8 @@ wait until then to implement it.
 
 Service configuration uses environment variables this is to follow best practices as stated in the 12 factor principles for portability and configuration https://12factor.net/
 
+When designing APIs I like to follow API Design first approach in which I create an open api spec for this case I did not deem it necessary, so I left this out for the interview.
+
 ## Contributing
 
 1. Fork it (<https://github.com/your-github-user/brightwheel/fork>)
