@@ -12,13 +12,6 @@ module Brightwheel
     "snailgun":  Snailgun,
     "spendgrid": Spendgrid,
   }
-
-  configure do
-    port = 4000
-    host = "localhost"
-    log = Log.for("BrightWheel Mailer ->")
-    env = Environment::Development
-  end
 end
 
 require "./brightwheel/mailer_adapter"

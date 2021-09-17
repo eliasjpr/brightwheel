@@ -18,6 +18,7 @@ module Brightwheel
       # 2. Response failed first vendor then send
       # 3. Alternatively the message can be enqueued and if retries failed then
       # message can be moved to a DLQ from when a different vendor can be used to send
+      # 4. Circuit Breaker
     rescue e
       retry_with_alternate_vendor.send(@email)
     end
