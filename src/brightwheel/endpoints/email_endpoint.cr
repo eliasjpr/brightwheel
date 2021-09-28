@@ -8,7 +8,7 @@ module Brightwheel
       raise invalid_email_message unless email_request.valid?
       content_type "application/json"
       response = MailerService.send(email_request)
-      EmailResponse.new(response)
+      EmailResponse.new(response.body)
     end
 
     def invalid_email_message

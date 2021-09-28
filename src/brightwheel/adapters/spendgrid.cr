@@ -4,16 +4,19 @@ module Brightwheel
     ENDPOINT     = "https://bw-interviews.herokuapp.com/snailgun/emails/snailgun_email_8I
     c0RUqvZQuZkyK1rMwZSMqb"
 
-    def send
-      response = Halite.headers(
+    def send(email : EmailRequest)
+      Halite.headers(
         "Content-Type": CONTENT_TYPE,
         "X-Api-Key": Brightwheel::SPENDGRID_API_KEY
-      ).post(ENDPOINT, json: message)
-
-      response.body
+      ).post(ENDPOINT, json: message(email))
     end
 
-    def message
+    def status_for(id : String) : Status
+      # Todo Implement
+      Status::Failed
+    end
+
+    private def message(email)
       {
         "sender":    email.sender,
         "recipient": email.recipient,

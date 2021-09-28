@@ -1,14 +1,9 @@
 module Brightwheel
   abstract class MailerAdapter
-    getter email : EmailRequest
-
-    def self.send(email : EmailRequest)
-      new(email).send
+    def initialize
     end
 
-    def initialize(@email : EmailRequest)
-    end
-
-    abstract def send
+    abstract def send(email : EmailRequest)
+    abstract def status_for(id : String) : Status
   end
 end

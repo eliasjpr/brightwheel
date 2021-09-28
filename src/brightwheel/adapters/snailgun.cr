@@ -3,16 +3,25 @@ module Brightwheel
     CONTENT_TYPE = "application/json"
     ENDPOINT     = "https://bw-interviews.herokuapp.com/snailgun/emails"
 
-    def send
+    def send(email : EmailRequest)
+      Halite.headers(
+        "Content-Type": CONTENT_TYPE,
+        "X-Api-Key": Brightwheel::SNAILGUN_API_KEY
+      ).post(ENDPOINT, json: message(email))
+    end
+
+    def status_for(id : String) : Status
       response = Halite.headers(
         "Content-Type": CONTENT_TYPE,
         "X-Api-Key": Brightwheel::SNAILGUN_API_KEY
-      ).post(ENDPOINT, json: message)
+      ).get(ENDPOINT, params: {"id" => id})
 
-      response.body
+      json = JSON.parse(response.body)
+
+      Status.parse json["status"].to_s
     end
 
-    def message
+    private def message(email)
       {
         "from_email": email.from,
         "from_name":  email.from_name,

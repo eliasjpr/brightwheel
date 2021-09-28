@@ -18,19 +18,6 @@ module Brightwheel
     validate subject, message: "Param SUBJECT must be present.", presence: true
     validate body, message: "Param BODY must be present.", presence: true
 
-    def plain_text
-      # TODO: parse body to plain text
-      # We can remove all the HTML tags but,
-      #
-      # Open Questions:
-      #
-      # 1. I ask how do we want to format the plain text?
-      # 2. We want to keep the plain text version readable so H1s should be formatted
-      # and <p /> should be formatted as well?
-      # 3. Do we want to break the length of a sentence to 80 chars which is a common
-      # pattern for formatting plain text emails?
-    end
-
     def sender
       "#{from_name} <#{from}>"
     end
